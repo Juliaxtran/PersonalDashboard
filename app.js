@@ -15,13 +15,14 @@
  * Instructions for this were found on CSS Tricks:
  * https://css-tricks.com/perfect-full-page-background-image/#awesome-easy-progressive-css3-way)
  */
-
+let author = document.getElementById("author");
 
   fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
   .then(response => response.json())
    .then(data => {
      console.log(data);
-     document.body.style.backgroundImage = `url(${data.urls.full})`
+     document.body.style.backgroundImage = `url(${data.urls.regular})`
+      author.textContent = `Photo by ${data.user.first_name} ${data.user.last_name}`
 
    })
 
