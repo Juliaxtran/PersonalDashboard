@@ -5,7 +5,9 @@ let cryptoInfo = document.getElementsByClassName("crypto-bottom");
 let timer = document.getElementsByClassName("time");
 
 // Get a random image from unsplash API
-fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
+
+const getImage = () => {
+  fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
   .then(response => response.json())
   .then(data => {
     document.body.style.backgroundImage = `url(${data.urls.regular})`
@@ -16,8 +18,10 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     document.body.style.backgroundImage = `url(https://images.unsplash.com/photo-1484542603127-984f4f7d14cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDI0NzB8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzMyMzA0ODQ&ixlib=rb-4.0.3&q=80&w=1080)`
     author.textContent = `Photo by  Brady Bellini`
   })
+}
 
-
+getImage();
+setInterval(getImage, 100000);
 
 //  Fetch crypto info
 
@@ -44,6 +48,11 @@ fetch('https://api.coingecko.com/api/v3/coins/bitcoin')
   })
 
   //  Get the time
-  const today = new Date();
-  let time =  today.toLocaleTimeString("en-us", {timeStyle: "short"});
-  timer[0].innerHTML = time;
+
+  const updateTime = () => {
+    const today = new Date();
+    let time =  today.toLocaleTimeString("en-us", {timeStyle: "short"});
+    timer[0].innerHTML = time;
+  }
+
+  setInterval(updateTime, 1000);
