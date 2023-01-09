@@ -1,6 +1,7 @@
 
 let author = document.getElementById("author");
-let crypto = document.getElementsByClassName("crypto");
+let crypto = document.getElementsByClassName("crypto-top");
+let cryptoInfo = document.getElementsByClassName("crypto-bottom");
 
 // Get a random image from unsplash API
 fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
@@ -29,9 +30,14 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
   .then(data => {
     console.log(data)
     crypto[0].innerHTML =
-      `<img src="${data.image.thumb}" alt="${data.name}"
-       <h3>${data.name}</h3>
-       <p> Price: $${data.market_data.current_price.usd}</p>`
+      `<img class='crypto-img' src="${data.image.small}" alt="${data.name}"
+       <h2 class='crypto-name'>${data.name}</h2>`
+    cryptoInfo[0].innerHTML =
+      `<p class='crypto-price'> Price: $${data.market_data.current_price.cad}</p>
+       <p class='crypto-price'> 24h High: $${data.market_data.high_24h.cad}</p>
+       <p class='crypto-price'> 24h Low: $${data.market_data.low_24h.cad}</p>`
+
+
   })
   .catch(err => {
     console.log(err)
