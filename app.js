@@ -22,7 +22,7 @@ let author = document.getElementById("author");
    .then(data => {
      console.log(data);
      document.body.style.backgroundImage = `url(${data.urls.regular})`
-      author.textContent = `Photo by ${data.user.first_name} ${data.user.last_name}`
+      author.textContent = `Photo by ${data.user.name}`
 
    })
 
