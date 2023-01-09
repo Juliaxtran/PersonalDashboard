@@ -29,9 +29,9 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
   .then(data => {
     console.log(data)
     crypto[0].innerHTML =
-      `<h3>${data.name}</h3>
-       <img src="${data.image.thumb}" alt="${data.name}">
-       <p>Current Price: $${data.market_data.current_price.usd}</p>`
+      `<img src="${data.image.thumb}" alt="${data.name}"
+       <h3>${data.name}</h3>
+       <p> Price: $${data.market_data.current_price.usd}</p>`
   })
   .catch(err => {
     console.log(err)

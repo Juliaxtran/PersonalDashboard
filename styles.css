@@ -47,3 +47,9 @@ h1.time {
   text-align: center;
 }
 
+.crypto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
