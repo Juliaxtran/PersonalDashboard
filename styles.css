@@ -61,9 +61,13 @@ h1.time {
   align-items: center;
   gap: 1em;
   font-size: 1.3rem;
+  font-weight: 700;
 }
 
 .crypto-bottom{
   padding: 1em
 }
 
+div.crypto > p {
+  margin: 0;
+}
