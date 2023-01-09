@@ -45,5 +45,5 @@ fetch('https://api.coingecko.com/api/v3/coins/bitcoin')
 
   //  Get the time
   const today = new Date();
-  let time =  today.toLocaleTimeString();
+  let time =  today.toLocaleTimeString("en-us", {timeStyle: "short"});
   timer[0].innerHTML = time;
