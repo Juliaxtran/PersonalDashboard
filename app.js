@@ -4,20 +4,21 @@ let crypto = document.getElementsByClassName("crypto-top");
 let cryptoInfo = document.getElementsByClassName("crypto-bottom");
 let timer = document.getElementsByClassName("time");
 
+
 // Get a random image from unsplash API
 
 const getImage = () => {
   fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
-  .then(response => response.json())
-  .then(data => {
-    document.body.style.backgroundImage = `url(${data.urls.regular})`
-    author.textContent = `Photo by ${data.user.name}`
-  })
-  .catch(err => {
-    // If there is an error, use a backup image
-    document.body.style.backgroundImage = `url(https://images.unsplash.com/photo-1484542603127-984f4f7d14cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDI0NzB8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzMyMzA0ODQ&ixlib=rb-4.0.3&q=80&w=1080)`
-    author.textContent = `Photo by  Brady Bellini`
-  })
+    .then(response => response.json())
+    .then(data => {
+      document.body.style.backgroundImage = `url(${data.urls.regular})`
+      author.textContent = `Photo by ${data.user.name}`
+    })
+    .catch(err => {
+      // If there is an error, use a backup image
+      document.body.style.backgroundImage = `url(https://images.unsplash.com/photo-1484542603127-984f4f7d14cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDI0NzB8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzMyMzA0ODQ&ixlib=rb-4.0.3&q=80&w=1080)`
+      author.textContent = `Photo by  Brady Bellini`
+    })
 }
 
 getImage();
@@ -28,12 +29,11 @@ setInterval(getImage, 100000);
 fetch('https://api.coingecko.com/api/v3/coins/bitcoin')
   .then(res => {
     if (!res.ok) {
-      throw Error ("Something went wrong")
+      throw Error("Something went wrong")
     }
     return res.json()
   })
   .then(data => {
-    console.log(data)
     crypto[0].innerHTML =
       `<img class='crypto-img' src="${data.image.small}" alt="${data.name}"
        <h2 class='crypto-name'>${data.name}</h2>`
@@ -47,12 +47,31 @@ fetch('https://api.coingecko.com/api/v3/coins/bitcoin')
     crypto[0].innerHTML = `<h3>Unable to fetch crypto info...</h3>`
   })
 
-  //  Get the time
+//  Get the time
 
-  const updateTime = () => {
-    const today = new Date();
-    let time =  today.toLocaleTimeString("en-us", {timeStyle: "short"});
-    timer[0].innerHTML = time;
-  }
+const updateTime = () => {
+  const today = new Date();
+  let time = today.toLocaleTimeString("en-us", { timeStyle: "short" });
+  timer[0].innerHTML = time;
+}
 
-  setInterval(updateTime, 1000);
+setInterval(updateTime, 1000);
+
+//  Weather
+
+// Geolocation API
+navigator.geolocation.getCurrentPosition((position) => {
+  //  Fetch weather info
+  fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather/?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric`)
+    .then(res => {
+      if (!res.ok) {
+        throw Error("Weahter data not available")
+      }
+      return res.json()
+    })
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+})
+
+
+
