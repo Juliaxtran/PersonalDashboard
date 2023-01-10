@@ -33,6 +33,7 @@ main {
     rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
     rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
     rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    font-size: 1.3rem;
 }
 
 #author:hover {
@@ -57,6 +58,7 @@ h1.time {
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
   border-radius: 5px;
   padding: 1em;
+
 }
 
 .weather:hover,
@@ -70,12 +72,13 @@ h1.time {
   justify-content: center;
   align-items: center;
   gap: 1em;
-  font-size: 1.3rem;
+  font-size: 2em;
   font-weight: 700;
 }
 
 .crypto-bottom {
   padding: 1em;
+  font-size: 1.5;
 }
 
 div.crypto > p {
@@ -114,7 +117,7 @@ div.crypto > p {
 }
 
 .time {
-  font-size: 3em;
+  font-size: 4em;
 }
 
 /* @media screen and (max-width: 600px) {
