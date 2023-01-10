@@ -3,6 +3,7 @@ let author = document.getElementById("author");
 let crypto = document.getElementsByClassName("crypto-top");
 let cryptoInfo = document.getElementsByClassName("crypto-bottom");
 let timer = document.getElementsByClassName("time");
+let weather = document.getElementsByClassName("weather");
 
 
 // Get a random image from unsplash API
@@ -69,9 +70,16 @@ navigator.geolocation.getCurrentPosition((position) => {
       }
       return res.json()
     })
-    .then(data => console.log(data))
+    .then(data =>{
+      console.log(data);
+      console.log(data.weather[0].icon);
+      weather[0].innerHTML = `
+        <img class='weather-img' src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="weather icon"> `
+
+    })
     .catch(err => console.log(err))
 })
+
 
 
 

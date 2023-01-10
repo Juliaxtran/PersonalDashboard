@@ -71,3 +71,10 @@ h1.time {
 div.crypto > p {
   margin: 0;
 }
+
+.weather{
+ background-color: rgba(255,255,255, 0.22);
+ box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+ height: fit-content;
+ border-radius: 50%;
+}
