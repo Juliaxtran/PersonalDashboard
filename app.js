@@ -4,6 +4,7 @@ let crypto = document.getElementsByClassName("crypto-top");
 let cryptoInfo = document.getElementsByClassName("crypto-bottom");
 let timer = document.getElementsByClassName("time");
 let weather = document.getElementsByClassName("weather");
+let quote = document.getElementsByClassName("quote");
 
 
 // Get a random image from unsplash API
@@ -86,6 +87,22 @@ navigator.geolocation.getCurrentPosition((position) => {
     .catch(err => console.log(err))
 })
 
+// Get quote
 
 
+const getQuote = () => {
+  fetch('https://api.quotable.io/random')
+    .then(res => {
+      if (!res.ok) {
+        throw Error("Quote not available")
+      }
+      return res.json()
+    })
+    .then(data => {
+      quote[0].textContent = ` "${data.content}" - ${data.author}`
+    })
 
+}
+
+getQuote();
+setInterval(getQuote, 100000);

@@ -51,6 +51,11 @@ h1.time {
   text-align: center;
 }
 
+.quote {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
 .crypto {
   display: flex;
   flex-direction: column;
