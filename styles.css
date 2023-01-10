@@ -123,6 +123,29 @@ div.crypto > p {
   font-size: 4em;
 }
 
+/* Cloud  */
+
+
+@keyframes move-clouds {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.cloud-icon {
+width: 100px;
+height: 100px;
+animation: move-clouds 1s linear infinite alternate;
+}
+
+
+
+
+
+
 /* @media screen and (max-width: 600px) {
   .crypto,
   .weather,
