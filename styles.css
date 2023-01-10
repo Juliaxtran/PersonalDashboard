@@ -113,6 +113,10 @@ div.crypto > p {
   font-size: 1.3em;
 }
 
+.time {
+  font-size: 3em;
+}
+
 /* @media screen and (max-width: 600px) {
   .crypto,
   .weather,
