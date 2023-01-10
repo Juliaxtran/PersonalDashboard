@@ -119,4 +119,10 @@ div.crypto > p {
   #author {
     font-size: 0.7rem;
   }
+
+  .weather-location {
+    top: 40px;
+  }
+
+  }
 }
