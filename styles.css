@@ -109,11 +109,11 @@ div.crypto > p {
 
 .weather-location {
   position: absolute;
-  top: 50px;
+  top: 40px;
   font-size: 1.3em;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .crypto,
   .weather,
   #author {
@@ -123,4 +123,4 @@ div.crypto > p {
   .weather-location {
     top: 40px;
   }
-}
+} */
