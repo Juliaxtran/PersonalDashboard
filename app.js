@@ -70,11 +70,17 @@ navigator.geolocation.getCurrentPosition((position) => {
       }
       return res.json()
     })
-    .then(data =>{
+    .then(data => {
       console.log(data);
       console.log(data.weather[0].icon);
       weather[0].innerHTML = `
-        <img class='weather-img' src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="weather icon"> `
+        <div class='weather-info'>
+        <img class='weather-img' src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="weather icon">
+        <h2 class='weather-temp'>${Math.round(data.main.temp)}°C</h2>
+        <p class='weather-desc'>${data.weather[0].description}</p>
+        </div>
+        <p class='weather-location'>${data.name}</p>
+        `
 
     })
     .catch(err => console.log(err))
